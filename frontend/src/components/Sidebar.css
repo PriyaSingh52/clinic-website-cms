@@ -1,0 +1,510 @@
+/* ===== NAVBAR HEIGHT FIX - PRODUCTION READY ===== */
+
+/* 
+ * Primary Navbar Container
+ * Using min-height for flexibility and height for consistency
+ */
+.admin-navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
+  
+  /* Flexbox for perfect vertical centering */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Increased height - adjust this value as needed */
+  height: 90px;
+  min-height: 90px; /* Prevents collapsing */
+  
+  gap: 30px;
+}
+
+/* 
+ * Main Content Spacing Fix
+ * Add this to your main content wrapper to prevent overlap
+ */
+.main-content,
+.dashboard-content,
+.page-content {
+  /* Accounts for sticky navbar */
+  padding-top: 0;
+  margin-top: 0;
+  /* Content now flows naturally below sticky navbar */
+}
+
+/* Alternative: If you need a fixed navbar with offset */
+body.has-fixed-navbar .main-content {
+  margin-top: 90px; /* Match navbar height */
+}
+
+/* ===== LOGO SECTION ===== */
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  
+  /* Ensure logo stays centered */
+  height: 100%;
+}
+
+.logo-icon {
+  width: 44px;  /* Slightly larger for better proportion */
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.4);
+}
+
+.logo-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== NAVIGATION LINKS ===== */
+.admin-nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  
+  /* Ensure nav items stay centered vertically */
+  height: 100%;
+}
+
+.admin-nav-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px; /* Increased padding for better proportion */
+  color: #475569;
+  text-decoration: none;
+  font-size: 15px; /* Slightly larger text */
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  white-space: nowrap;
+  
+  /* Vertical centering */
+  height: auto;
+  line-height: 1.5;
+}
+
+.admin-nav-links a svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Hover effects */
+.admin-nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(167, 139, 250, 0.15) 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.admin-nav-links a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.admin-nav-links a:hover {
+  color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.admin-nav-links a span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Active link styles */
+.admin-nav-links a.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== LOGOUT BUTTON ===== */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px; /* Increased padding */
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  /* Vertical centering */
+  height: auto;
+  line-height: 1.5;
+}
+
+.logout-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(244, 114, 182, 0.6);
+}
+
+/* ===== MOBILE TOGGLE BUTTON ===== */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.toggle-line {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-toggle.active .toggle-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-toggle.active .toggle-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.mobile-toggle.active .toggle-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Hide mobile logout on desktop */
+.mobile-logout {
+  display: none;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+  display: none;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Large Tablets (≤1200px) */
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 30px;
+    height: 85px;
+    min-height: 85px;
+  }
+  
+  .admin-nav-links a {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .admin-nav-links a svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .logout-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .logout-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  body.has-fixed-navbar .main-content {
+    margin-top: 85px;
+  }
+}
+
+/* Tablets - Mobile Menu Activates (≤968px) */
+@media (max-width: 968px) {
+  .navbar-container {
+    padding: 0 25px;
+    height: 80px;
+    min-height: 80px;
+  }
+  
+  .admin-logo {
+    font-size: 20px;
+    z-index: 1001;
+  }
+  
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* Show mobile toggle */
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  /* Hide desktop logout */
+  .desktop-logout {
+    display: none;
+  }
+  
+  /* Mobile navigation drawer */
+  .admin-nav-links {
+    position: fixed;
+    top: 80px; /* Match navbar height */
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 80px); /* Account for navbar */
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 12px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    overflow-y: auto;
+    z-index: 999;
+  }
+  
+  .admin-nav-links.mobile-open {
+    right: 0;
+  }
+  
+  .admin-nav-links a {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    justify-content: flex-start;
+  }
+  
+  .admin-nav-links a svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Show mobile logout */
+  .mobile-logout {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  
+  /* Mobile overlay backdrop */
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    top: 80px; /* Match navbar height */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+  }
+  
+  body.has-fixed-navbar .main-content {
+    margin-top: 80px;
+  }
+}
+
+/* Mobile Devices (≤768px) */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 20px;
+    height: 75px;
+    min-height: 75px;
+  }
+  
+  .admin-logo {
+    font-size: 18px;
+  }
+  
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .logo-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mobile-toggle {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .toggle-line {
+    height: 2.5px;
+  }
+  
+  .admin-nav-links {
+    top: 75px;
+    height: calc(100vh - 75px);
+    width: 260px;
+  }
+  
+  .mobile-overlay {
+    top: 75px;
+    height: calc(100vh - 75px);
+  }
+  
+  body.has-fixed-navbar .main-content {
+    margin-top: 75px;
+  }
+}
+
+/* Extra Small Devices (≤480px) */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 15px;
+    height: 70px;
+    min-height: 70px;
+  }
+  
+  .admin-logo {
+    font-size: 16px;
+  }
+  
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .logo-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .mobile-toggle {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .admin-nav-links {
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: 240px;
+    padding: 15px;
+  }
+  
+  .admin-nav-links a {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .mobile-logout {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .mobile-overlay {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+  
+  body.has-fixed-navbar .main-content {
+    margin-top: 70px;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Smooth transitions for content shifts */
+.main-content {
+  transition: margin-top 0.3s ease;
+}
+
+/* Ensure navbar doesn't affect page flow when sticky */
+.page-wrapper {
+  position: relative;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .admin-navbar {
+    position: static;
+    box-shadow: none;
+  }
+  
+  .navbar-container {
+    height: auto;
+    min-height: auto;
+    padding: 10px 20px;
+  }
+  
+  .logout-btn,
+  .mobile-toggle {
+    display: none;
+  }
+}

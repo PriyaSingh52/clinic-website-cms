@@ -1,0 +1,485 @@
+/* ===== Container ===== */
+.doctor-list-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  border-radius: 50%;
+  color: #1976d2;
+}
+
+.empty-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  color: #5f6368;
+  margin: 0;
+}
+
+/* ===== Table Wrapper ===== */
+.table-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+/* ===== Doctor Table ===== */
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.doctor-table thead {
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  color: #ffffff;
+}
+
+.doctor-table thead th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.doctor-table thead th:first-child {
+  padding-left: 1.5rem;
+  width: 60px;
+}
+
+.doctor-table thead th:last-child {
+  text-align: center;
+  padding-right: 1.5rem;
+}
+
+.doctor-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.doctor-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.doctor-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.doctor-table tbody td {
+  padding: 1.25rem 1rem;
+  color: #2c3e50;
+  vertical-align: middle;
+}
+
+.doctor-table tbody td:first-child {
+  padding-left: 1.5rem;
+  font-weight: 600;
+  color: #5f6368;
+}
+
+.doctor-table tbody td:last-child {
+  text-align: center;
+  padding-right: 1.5rem;
+}
+
+/* ===== Doctor Name Cell ===== */
+.doctor-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.doctor-avatar-small {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-name-cell span {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* ===== Status Badge ===== */
+.status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+/* ===== Delete Button ===== */
+.delete-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #d32f2f;
+  background: #ffffff;
+  color: #d32f2f;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover:not(:disabled) {
+  background: #d32f2f;
+  color: #ffffff;
+}
+
+.delete-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Desktop Large (1200px and up) */
+@media (min-width: 1200px) {
+  .doctor-list-container {
+    padding: 2.5rem;
+  }
+
+  .doctor-table {
+    font-size: 1.05rem;
+  }
+}
+
+/* Desktop Medium (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .doctor-list-container {
+    padding: 2rem;
+  }
+
+  .doctor-table thead th {
+    padding: 1.125rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .doctor-table tbody td {
+    padding: 1.125rem 0.875rem;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .doctor-list-container {
+    padding: 1.5rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .doctor-table {
+    min-width: 800px;
+  }
+
+  .doctor-table thead th {
+    padding: 1rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .doctor-table tbody td {
+    padding: 1rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .doctor-avatar-small {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+  }
+
+  .delete-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile (below 768px) - Card Layout */
+@media (max-width: 767px) {
+  .doctor-list-container {
+    padding: 1rem;
+  }
+
+  .table-wrapper {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+
+  .doctor-table {
+    display: block;
+  }
+
+  .doctor-table thead {
+    display: none;
+  }
+
+  .doctor-table tbody {
+    display: block;
+  }
+
+  .doctor-table tbody tr {
+    display: block;
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  .doctor-table tbody tr:hover {
+    background: #ffffff;
+  }
+
+  .doctor-table tbody td {
+    display: block;
+    padding: 0.75rem 0;
+    border: none;
+    text-align: left;
+  }
+
+  .doctor-table tbody td:first-child {
+    display: none;
+  }
+
+  .doctor-table tbody td:not(:first-child):not(:last-child) {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .doctor-table tbody td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #5f6368;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .doctor-table tbody td:last-child {
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 0.75rem;
+    display: block;
+  }
+
+  .doctor-table tbody td:last-child:before {
+    display: none;
+  }
+
+  .doctor-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .doctor-avatar-small {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 1.25rem;
+  }
+
+  .doctor-name-cell span {
+    font-size: 1.05rem;
+  }
+
+  .status-badge {
+    display: inline-block;
+  }
+
+  .delete-btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}
+
+/* Mobile Small (below 480px) */
+@media (max-width: 479px) {
+  .doctor-list-container {
+    padding: 0.75rem;
+  }
+
+  .empty-state {
+    padding: 3rem 1.5rem;
+  }
+
+  .empty-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .empty-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .empty-state h3 {
+    font-size: 1.35rem;
+  }
+
+  .doctor-table tbody tr {
+    padding: 1rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .doctor-table tbody td {
+    padding: 0.625rem 0;
+    font-size: 0.9rem;
+  }
+
+  .doctor-table tbody td:not(:first-child):not(:last-child) {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .doctor-table tbody td:before {
+    font-size: 0.8rem;
+  }
+
+  .doctor-avatar-small {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.125rem;
+  }
+
+  .doctor-name-cell {
+    gap: 0.75rem;
+  }
+
+  .doctor-name-cell span {
+    font-size: 1rem;
+  }
+
+  .status-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .delete-btn {
+    padding: 0.65rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Extra Small (below 375px) */
+@media (max-width: 374px) {
+  .doctor-list-container {
+    padding: 0.625rem;
+  }
+
+  .empty-state {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .empty-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .empty-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .empty-state h3 {
+    font-size: 1.25rem;
+  }
+
+  .empty-state p {
+    font-size: 0.95rem;
+  }
+
+  .doctor-table tbody tr {
+    padding: 0.875rem;
+  }
+
+  .doctor-table tbody td {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+
+  .doctor-table tbody td:not(:first-child):not(:last-child) {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .doctor-table tbody td:before {
+    font-size: 0.75rem;
+  }
+
+  .doctor-avatar-small {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    font-size: 1.05rem;
+  }
+
+  .doctor-name-cell span {
+    font-size: 0.95rem;
+  }
+
+  .status-badge {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .delete-btn {
+    padding: 0.6rem;
+    font-size: 0.825rem;
+  }
+}
