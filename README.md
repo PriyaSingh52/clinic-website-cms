@@ -1,7 +1,7 @@
 ## Clinic Website CMS – Complete Project Documentation
 
 ## Live Demo
-Live Website: https://clinic-website-cms-ovo4.onrender.com
+Live Website: https://clinic-website-cms-seven.vercel.app/
 
 1. Project Overview
 This project is a real-world Clinic Website CMS that allows an admin to manage website content such as doctors, services, appointments, gallery, and contact inquiries without changing code.
